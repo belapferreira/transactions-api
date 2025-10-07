@@ -11,4 +11,4 @@
 [] It should be possible to identify the user among requests
 [] The person only should be able to see their own transactions
 
-# Non-functional requirements
+<!-- # Non-functional requirements -->
