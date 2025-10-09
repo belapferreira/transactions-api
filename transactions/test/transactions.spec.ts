@@ -111,4 +111,35 @@ describe('Transactions routes', () => {
 
     expect(summaryResponse.body.summary).toEqual({ amount: 3000 })
   })
+
+  it('should be able to delete a transaction', async () => {
+    const createTransactionResponse = await request(app.server)
+      .post('/transactions')
+      .send({
+        title: 'New transaction',
+        amount: 5000,
+        type: 'credit',
+      })
+
+    const cookies = createTransactionResponse.get('Set-Cookie') || []
+
+    const listTransactionsResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    const transactionId = listTransactionsResponse.body.transactions[0].id
+
+    await request(app.server)
+      .delete(`/transactions/${transactionId}`)
+      .set('Cookie', cookies)
+      .expect(204)
+
+    const listTransactionsAfterDeleteResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    expect(listTransactionsAfterDeleteResponse.body.transactions).toEqual([])
+  })
 })
