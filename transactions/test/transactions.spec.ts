@@ -112,6 +112,47 @@ describe('Transactions routes', () => {
     expect(summaryResponse.body.summary).toEqual({ amount: 3000 })
   })
 
+  it('should be able to update a transaction', async () => {
+    const createTransactionResponse = await request(app.server)
+      .post('/transactions')
+      .send({
+        title: 'New transaction',
+        amount: 5000,
+        type: 'credit',
+      })
+
+    const cookies = createTransactionResponse.get('Set-Cookie') || []
+
+    const listTransactionsResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    const transactionId = listTransactionsResponse.body.transactions[0].id
+
+    await request(app.server)
+      .put(`/transactions/${transactionId}`)
+      .set('Cookie', cookies)
+      .send({
+        title: 'Updated new transaction',
+        amount: 8000,
+        type: 'credit',
+      })
+      .expect(201)
+
+    const listTransactionsAfterUpdateResponse = await request(app.server)
+      .get('/transactions')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    expect(listTransactionsAfterUpdateResponse.body.transactions).toEqual([
+      expect.objectContaining({
+        title: 'Updated new transaction',
+        amount: 8000,
+      }),
+    ])
+  })
+
   it('should be able to delete a transaction', async () => {
     const createTransactionResponse = await request(app.server)
       .post('/transactions')
