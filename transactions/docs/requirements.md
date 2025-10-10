@@ -7,8 +7,8 @@
 
 # Business rules
 
-[] The transaction can be of type credit that will sum to the total amount or debit that will subtract to the amount
-[] It should be possible to identify the user among requests
-[] The person only should be able to see their own transactions
+[x] The transaction can be of type credit that will sum to the total amount or debit that will subtract to the amount
+[x] It should be possible to identify the user among requests
+[x] The person only should be able to see their own transactions
 
 <!-- # Non-functional requirements -->
