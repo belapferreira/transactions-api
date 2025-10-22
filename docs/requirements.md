@@ -1,9 +1,9 @@
 # Functional requirements
 
 [x] The person should be able to create a new transaction
-[x] The person should be able to get a summary of their account
 [x] The person should be able to list all existing transactions
 [x] The person should be able to get a specific transaction
+[x] The person should be able to get a summary of their account
 
 # Business rules
 
