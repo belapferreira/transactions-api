@@ -75,7 +75,7 @@ git clone https://github.com/belapferreira/transactions-api.git
 
 2. Duplicate the `.env.test.example` as well, renaming it to `.env.test`.
 
-3. Through the terminal, go to the directory where the repository was cloned and run the following command:
+3. Through the terminal, go to the directory where the repository was cloned and run the following commands:
 
 ```bash
 # installing dependencies
@@ -93,13 +93,13 @@ npm run dev
 1. Through the terminal in the directory of the project repository run the following command:
 
 ```bash
-# running unit tests
+# running tests
 npm test
 ```
 
 > [!NOTE]
 > Docs: http://localhost:${PORT}/docs
-> `http://localhost:3333/docs`
+> `http://localhost:3333/docs` 
 
 ### :wrench: Techs | Tools | Resources
 
