@@ -98,7 +98,7 @@ npm test
 ```
 
 > [!NOTE]
-> Docs: http://localhost:${PORT}/docs
+> Docs: http://localhost:${PORT}/docs  
 > `http://localhost:3333/docs` 
 
 ### :wrench: Techs | Tools | Resources
