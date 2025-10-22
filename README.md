@@ -53,7 +53,7 @@
 - [x] Transactions can only be managed by the owner (through session recognition)
 
 > [!Important]  
-> As the transactions can only be managed by its owner, you should create a transaction first (POST request) to be able to run the other requests. When you create a request for the first time, the cookie `session-id` will be registered and this will allow to identify the owner.
+> As the transactions can only be managed by their owner, you should create a transaction first (POST request) to be able to run the other requests. When you create a request for the first time, the cookie `session-id` will be registered and this will allow to identify the owner.
 
 ### :gear: Settings
 
